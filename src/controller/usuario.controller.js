@@ -12,7 +12,6 @@ const findUserByIdController = async (req, res) => {
 
     } catch (err) {
         if (err.kind == 'ObjectId') {
-            console.log(err.kind == 'ObjectId');
             return res.status(400).send({ message: `ID informado está incorreto, tente novamente!` });
         }
 
@@ -64,11 +63,14 @@ const removeUserController = async (req, res) => {
 
         const deletedUser = await userService.removeUserService(req.params.id);
 
-        if (deletedUser.deletedCount > 0) {
+        console.log(deletedUser);
+        return res.status(200).send({ message: `Sucesso, usuário deletado.` });
+
+        /* if (deletedUser.deletedCount > 0) {
             return res.status(200).send({ message: `Sucesso, usuário deletado.` });
         } else {
             return res.status(404).send({ message: `Usuário não encontrado, tente novamente.` });
-        }
+        } */
 
     } catch (err) {
         console.log(`erro: ${err.message}`);
