@@ -5,6 +5,7 @@ const connectToDatabase = require('./src/database/database'); //arquivo de conex
 const usuario = require('./src/router/usuario.router'); //arquivo de rota do usuário
 const auth = require('./src/router/auth.router'); //arquivo de rota do auth
 const produto = require('./src/router/produto.router'); //arquivo de rota do produto
+const categoria = require('./src/router/categoria.router'); //arquivo de rota da categoria
 
 const app = express();
 
@@ -16,7 +17,8 @@ connectToDatabase(); //conectando com o banco
 
 app.use('/usuario', usuario); //chamando as rotas do usuário
 app.use('/auth', auth); //chamando a rota de autenticação
-app.use('/produto', produto); //chamando a rota de produto
+app.use('/produto', produto); //chamando as rotas de produto
+app.use('/categoria', categoria); //chamando as rotas de categoria
 
 app.get('/', (req, res) => {
     res.send({
