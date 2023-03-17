@@ -51,10 +51,31 @@ const deleteProductController = async (req, res) => {
     }
 }
 
+const addCategoriaProdutoController = async (req, res) => {
+    try {
+        req.body.createdAt = new Date();
+        const categoria = await produtoService.addCategoriaProdutoService(req.params.id, req.body);
+    } catch {
+        console.log(`erro: ${err.message}`);
+        return res.status(500).send({ message: `Erro inesperado, tente novamente.` });
+    }
+}
+
+const removeCategoriaProdutoController = async (req, res) => {
+    try {
+        const categoria = await produtoService.removeCategoriaProdutoService(req.body);
+    } catch {
+        console.log(`erro: ${err.message}`);
+        return res.status(500).send({ message: `Erro inesperado, tente novamente.` });
+    }
+}
+
 module.exports = {
     findProductByIdController,
     findAllProductsController,
     createProductController,
     updateProductController,
-    deleteProductController
+    deleteProductController,
+    addCategoriaProdutoController,
+    removeCategoriaProdutoController
 }
