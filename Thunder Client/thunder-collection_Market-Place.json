@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Market-Place",
-    "dateExported": "2023-03-18T16:33:19.037Z",
+    "dateExported": "2023-03-18T23:19:49.313Z",
     "version": "1.1",
     "folders": [
         {
@@ -141,17 +141,21 @@
             "colId": "95ffa6e6-02d9-4dc7-b02f-2f130d1205f6",
             "containerId": "1e8ecdfc-73c2-4668-96d2-eebb39bf199b",
             "name": "Add Address",
-            "url": "{{BaseURL}}{{Port}}/usuario/addAddress/64135a1dab5e063f176770f6",
+            "url": "{{BaseURL}}{{Port}}/usuario/addAddress/64136c1f024c26c95f8ee122",
             "method": "POST",
             "sortNum": 50000,
             "created": "2023-03-16T18:36:22.973Z",
-            "modified": "2023-03-16T19:00:33.934Z",
+            "modified": "2023-03-18T22:24:32.796Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"rua\": \"rua 28 de setembro\",\n  \"numero\": 1,\n  \"CEP\": \"20000-010\"\n}",
+                "raw": "[\n  {\n    \"rua\": \"rua de lazer\",\n    \n    \"CEP\": \"20000-110\"\n  }  \n]",
                 "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
             },
             "tests": []
         },
@@ -183,7 +187,7 @@
             "method": "POST",
             "sortNum": 70000,
             "created": "2023-03-17T10:28:20.818Z",
-            "modified": "2023-03-17T18:19:11.534Z",
+            "modified": "2023-03-18T20:14:14.289Z",
             "headers": [],
             "params": [],
             "body": {
@@ -242,12 +246,12 @@
             "method": "POST",
             "sortNum": 100000,
             "created": "2023-03-17T18:21:57.441Z",
-            "modified": "2023-03-18T13:22:12.680Z",
+            "modified": "2023-03-18T21:16:13.844Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nome\": \"Produto 2\",\n  \"descricao\": \"produto empacotado de otima qualidade\",\n  \"precoUnitario\": 10.0,\n  \"imagem\": \"img.siteimgs/produto2.jpg\",\n  \"codigoBarra\": 9876345,\n  \"categorias\": [\n      {\n        \"_id\": \"6415ba61fc5504c3dd351334\"\n      }\n    ]\n}",
+                "raw": "{\n  \"nome\": \"Produto 3\",\n  \"descricao\": \"produto congelado de otima qualidade\",\n  \"precoUnitario\": 10.0,\n  \"imagem\": \"img.siteimgs/produto3.jpg\",\n  \"codigoBarra\": 9876344,\n  \"categorias\": [\n      {\n        \"_id\": \"6415ba61fc5504c3dd351334\"\n      }\n    ]\n}",
                 "form": []
             },
             "auth": {
