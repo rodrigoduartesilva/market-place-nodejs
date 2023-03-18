@@ -3,9 +3,10 @@ const router = require('express').Router();
 const produtoController = require('../controller/produto.controller');
 const authMiddleware = require('../middleware/auth.middlaware');
 const { validaProduto, validaId } = require('../middleware/validacao.middleware');
+const paginacao = require('../middleware/paginacao.middleware');
 
 router.get('/find/:id', authMiddleware, validaId, produtoController.findProductByIdController);
-router.get('/findAll', authMiddleware, produtoController.findAllProductsController);
+router.get('/findAll', authMiddleware, paginacao, produtoController.findAllProductsController);
 
 router.post('/create', authMiddleware, validaProduto, produtoController.createProductController);
 router.post('/addCategoria/:id', authMiddleware, validaId, produtoController.addCategoriaProdutoController);
