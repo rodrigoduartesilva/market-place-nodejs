@@ -18,7 +18,7 @@ const validaUsuario = (req, res, next) => {
         return res.status(400).send({ messsage: `O campo 'imagem' precisa ser preenchido.` });
     }
 
-    if (!req.body.admin) {
+    if (!req.body.admin == undefined) {
         return res.status(400).send({ messsage: `O campo 'admin' precisa ser preenchido.` });
     }
 
