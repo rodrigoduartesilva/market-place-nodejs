@@ -105,7 +105,7 @@
                 }
             }
         },
-        "/usuario/find{id}":{
+        "/usuario/findById/{id}":{
             "get":{
                 "security": [
                     {
@@ -117,10 +117,10 @@
                 "tags": ["Usuario"],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         },
                         "name": "id"
                     }
@@ -190,16 +190,17 @@
                 "summary": "Criar um novo usuário.",
                 "description": "Rota responsável por criar um novo usuário através das informações passadas no endpoint.",
                 "tags": ["Usuario"],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/Usuario"
-                        },
-                        "name": "body"
-                    }
-                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/Usuario"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "responses": {
                     "201": {
                         "description": "Retorna o objeto criado no banco.",
@@ -242,22 +243,25 @@
                 "tags": ["Usuario"],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         },
                         "name": "id"
-                    },
-                    {
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/Usuario"
-                        },
-                        "name": "body"
                     }
                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/Usuario"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "description": "Retorna o objeto atualizado no banco.",
@@ -318,7 +322,7 @@
                 }
             }
         },
-        "/usuario/delete{id}":{
+        "/usuario/remove/{id}":{
             "delete":{
                 "security": [
                     {
@@ -330,10 +334,10 @@
                 "tags": ["Usuario"],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         },
                         "name": "id"
                     }
@@ -410,22 +414,25 @@
                 "tags": ["Usuario"],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         },
                         "name": "id"
-                    },
-                    {
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/Usuario"
-                        },
-                        "name": "body"
                     }
                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/UserAddress"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "responses": {
                     "201": {
                         "description": "Retorna um usuário com seu novo endereço.",
@@ -486,7 +493,7 @@
                 }
             }
         },
-        "/usuario/removeAddress/{id}": {
+        "/usuario/removeAddress/": {
             "delete": {
                 "security": [
                     {
@@ -496,16 +503,24 @@
                 "summary": "Remove o endereço no usuário.",
                 "description": "Rota responsável por remover endereços no usuário informado.",
                 "tags": ["Usuario"],
-                "parameters": [
-                    {
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "name": "id"
-                    }
-                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "addressId": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "description": "Retorna um usuário com seu endereço removido.",
@@ -578,22 +593,25 @@
                 "tags": ["Usuario"],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         },
                         "name": "id"
-                    },
-                    {
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/ProductFav"
-                        },
-                        "name": "body"
                     }
                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/ProductFav"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "responses": {
                     "201": {
                         "description": "Retorna um usuário com seu novo produto favorito.",
@@ -666,10 +684,10 @@
                 "tags": ["Usuario"],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         },
                         "name": "id"
                     }
