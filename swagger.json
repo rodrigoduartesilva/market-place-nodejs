@@ -1,0 +1,48 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Marketplace",
+        "description": "API de Marketplace completa contendo o CRUD de diversos assuntos.",
+        "contact": {
+            "name": "Rodrigo Duarte",
+            "email": "rodrigo@email.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/",
+            "description": "API de Teste LOCAL"
+        }
+    ],
+    "paths": {
+        "/usuario/findAll":{
+            "get":{
+                "summary": "Lista todos os usuários da API.",
+                "description": "Rota responsável por listar todos os usuários da API.",
+                "tags": ["Usuario"],
+                "responses": {
+                    "200":{
+                        "description": "ok, tarefa realizada com sucesso."
+                    },
+                    "401":{
+                        "description": "Unauthorized, erro de autenticação, problemas com o token."
+                    },
+                    "404":{
+                        "description": "Not Found, nenhum usuário encontrado."
+                    },
+                    "500":{
+                        "description": "Internal Server Error, alguma coisa deu errado no servidor."
+                    }
+                }
+            }
+        },
+        "/usuario/find":{
+            "get":{
+                "summary": "Lista um usuário vinculado a um Id da API.",
+                "description": "Rota responsável por localizar um usuário da API através de Id informado.",
+                "tags": ["Usuario"]
+            }
+        }
+    }
+}
